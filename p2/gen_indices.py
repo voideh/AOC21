@@ -1,6 +1,6 @@
 #!python3.9
 def gen_indices(n):
-    return list(filter(lambda x : x >= 0, [n - x for x in range(3)]))
+    return set(max(n-x, 0) for x in range(3))
 
 with open('input', 'r') as f:
     sums = list()
@@ -8,12 +8,11 @@ with open('input', 'r') as f:
     for line in f:
         content = int(line.strip('\n'))
         indices = gen_indices(counter)
+        print(indices)
         for i in indices:
             try:
-                print(f'Value {content} added to {i}')
                 sums[i] += content
             except:
-                print(f'No value @ {i}, inserting {content}')
                 sums.append(content)
         counter += 1
 
