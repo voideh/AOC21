@@ -1,3 +1,5 @@
+# [1,2,3,4,5,6]
+#   [2,3,4] -> reduce shift indices by 1 until end 
 #!python3.9
 def gen_indices(n):
     return set(max(n-x, 0) for x in range(3))
@@ -8,7 +10,6 @@ with open('input', 'r') as f:
     for line in f:
         content = int(line.strip('\n'))
         indices = gen_indices(counter)
-        print(indices)
         for i in indices:
             try:
                 sums[i] += content
@@ -22,7 +23,4 @@ with open('input', 'r') as f:
         if prev != 0 and s > prev:
             total += 1
         prev = s
-
     print(total)
-
-
