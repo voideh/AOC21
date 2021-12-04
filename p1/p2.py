@@ -1,6 +1,5 @@
-# [1,2,3,4,5,6]
-#   [2,3,4] -> reduce shift indices by 1 until end 
 #!python3.9
+# original solution -- too much code!
 def gen_indices(n):
     return set(max(n-x, 0) for x in range(3))
 
